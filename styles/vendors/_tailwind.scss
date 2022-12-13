@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-peyda antialiased;
+    @apply scroll-smooth;
+    @apply w-screen overflow-x-hidden;
+  }
+
+  body {
+    // @apply w-screen overflow-x-hidden;
+  }
+
+  main {
+    // @apply pb-24;
+  }
+}
