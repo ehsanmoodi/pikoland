@@ -12,10 +12,10 @@ module.exports = {
       colors: {
         raffia: "#E7CDB1",
         blueCharcoal: "#00070F",
-        bamboo: "#DF6704",
-        lochmara: "#0075C9",
-        roofTerracotta: "#AC1D2F",
-        persianIndigo: "#531078",
+        carrot: "#DF6704",
+        coconut: "#0075C9",
+        hazelnut: "#AC1D2F",
+        raisin: "#531078",
       },
       keyframes: {
         "bounce-horizontal": {

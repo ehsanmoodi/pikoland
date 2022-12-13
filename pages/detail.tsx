@@ -21,7 +21,7 @@ export default function Detail() {
           <div className="section__container">
             <ul className="section__nav">section nav</ul>
             <div className="section__body">section body</div>
-            <div className="section__image section__image--ingredients bg-lochmara">
+            <div className="section__image section__image--ingredients bg-coconut">
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}

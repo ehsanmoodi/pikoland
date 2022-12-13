@@ -18,7 +18,7 @@ export default function Single() {
           <div className="section__container">
             <ul className="section__nav">section nav</ul>
             <div className="section__body">section body</div>
-            <div className="section__image section__image--single bg-lochmara">
+            <div className="section__image section__image--single bg-coconut">
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}

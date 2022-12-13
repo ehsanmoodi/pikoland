@@ -6,16 +6,15 @@
 
   &__copy-right {
     @apply order-2 lg:order-1;
-    @apply px-4 py-6;
+    @apply px-4 py-6 lg:px-6 lg:py-4;
     @apply flex items-center justify-between gap-4 lg:flex-col;
     @apply lg:border-r border-white border-opacity-30;
     @apply lg:mt-6;
 
     span {
       @apply font-normal text-sm lg:text-base;
-      
+
       @screen lg {
-        // direction: rtl;
         writing-mode: vertical-rl;
         @apply rotate-180;
       }
@@ -29,9 +28,72 @@
   }
 
   &__nav {
+    @apply relative;
     @apply lg:w-1/2;
     @apply shrink-0;
     @apply order-1;
+    @apply flex gap-5 lg:gap-8 mx-4 lg:mx-0 lg:px-6 py-5 lg:py-0 lg:mt-6 mb-6;
+    @apply font-medium text-sm lg:text-base;
+
+    &::after {
+      content: "";
+      @apply absolute bottom-0 left-0 right-0;
+      @apply block h-0;
+      @apply border-b border-white border-opacity-40;
+    }
+
+    @screen lg {
+      height: 76px;
+
+      &::after {
+        @apply -left-full;
+      }
+    }
+
+    & > li {
+      & > a {
+        @apply inline-flex items-center justify-center h-full;
+        @apply relative;
+
+        &::after {
+          content: "";
+          @apply absolute inline-block w-2 h-2 rounded-full;
+          @apply -bottom-1 left-0 right-0 mx-auto z-10;
+        }
+
+        &.coconut {
+          @apply text-coconut;
+
+          &::after {
+            @apply bg-coconut;
+          }
+        }
+
+        &.carrot {
+          @apply text-carrot;
+
+          &::after {
+            @apply bg-carrot;
+          }
+        }
+
+        &.hazelnut {
+          @apply text-hazelnut;
+
+          &::after {
+            @apply bg-hazelnut;
+          }
+        }
+
+        &.raisin {
+          @apply text-raisin;
+
+          &::after {
+            @apply bg-raisin;
+          }
+        }
+      }
+    }
   }
 
   &__body {

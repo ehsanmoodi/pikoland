@@ -18,7 +18,7 @@ export default function Blog() {
           <div className="section__container">
             <ul className="section__nav">section nav</ul>
             <div className="section__body">section body</div>
-            <div className="section__image bg-lochmara">
+            <div className="section__image bg-coconut">
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}
