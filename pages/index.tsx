@@ -9,13 +9,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header></header>
-
       <main>
-        
+        <section className="section">
+          <div className="section__copy-right">copy-right</div>
+          <div className="section__container">
+            <ul className="section__nav">section nav</ul>
+            <div className="section__body">section body</div>
+            <div className="section__image">section image</div>
+          </div>
+        </section>
       </main>
-
-      <footer></footer>
     </div>
   );
 }

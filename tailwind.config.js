@@ -9,7 +9,14 @@ module.exports = {
       peyda: ["peyda"],
     },
     extend: {
-      colors: {},
+      colors: {
+        raffia: "#E7CDB1",
+        blueCharcoal: "#00070F",
+        bamboo: "#DF6704",
+        lochmara: "#0075C9",
+        roofTerracotta: "#AC1D2F",
+        persianIndigo: "#531078"
+      },
       keyframes: {
         "bounce-horizontal": {
           "0%, 100%": {
