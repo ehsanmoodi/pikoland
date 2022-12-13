@@ -3,25 +3,18 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import coconutPackageImage from "../public/images/pikoland-coconut-package.png";
-import { LanguageSwitcher } from "../components";
 
-export default function Home() {
+export default function Blog() {
   return (
     <div>
       <Head>
-        <title>Pikoland</title>
-        <meta
-          name="description"
-          content="Mini Cakes Whith Carrot & Cinnamon Flavor"
-        />
+        <title>Blog | Pikoland</title>
+        <meta name="description" content="Pikoland Blog" />
       </Head>
 
       <main>
         <section className="section">
-          <div className="section__copy-right">
-            <LanguageSwitcher />
-            <span>© 2022 Pikoland. All Rights Reserved.</span>
-          </div>
+          <div className="section__copy-right">copy-right</div>
           <div className="section__container">
             <ul className="section__nav">section nav</ul>
             <div className="section__body">section body</div>

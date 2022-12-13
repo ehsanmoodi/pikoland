@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply font-peyda antialiased;
+    @apply font-peyda antialiased text-blueCharcoal;
     @apply scroll-smooth;
     @apply w-screen overflow-x-hidden;
   }

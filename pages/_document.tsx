@@ -18,7 +18,9 @@ class MyDocument extends Document {
         dir={this.props.locale === "fa" ? "rtl" : "ltr"}
         lang={this.props.locale}
       >
-        <Head></Head>
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />

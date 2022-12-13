@@ -15,7 +15,7 @@ module.exports = {
         bamboo: "#DF6704",
         lochmara: "#0075C9",
         roofTerracotta: "#AC1D2F",
-        persianIndigo: "#531078"
+        persianIndigo: "#531078",
       },
       keyframes: {
         "bounce-horizontal": {

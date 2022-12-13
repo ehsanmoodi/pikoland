@@ -1,34 +1,81 @@
 .section {
   @apply w-screen h-auto lg:h-screen;
-  // @apply overflow-hidden;
+  @apply overflow-hidden;
   @apply bg-raffia;
-  @apply border-4 border-red-600;
   @apply flex flex-col lg:flex-row;
 
   &__copy-right {
     @apply order-2 lg:order-1;
+    @apply px-4 py-6;
+    @apply flex items-center justify-between gap-4 lg:flex-col;
+    @apply lg:border-r border-white border-opacity-30;
+    @apply lg:mt-6;
+
+    span {
+      @apply font-normal text-sm lg:text-base;
+      
+      @screen lg {
+        // direction: rtl;
+        writing-mode: vertical-rl;
+        @apply rotate-180;
+      }
+    }
   }
 
   &__container {
     @apply order-1 lg:order-2;
     @apply grow;
     @apply flex flex-col flex-wrap;
-    @apply border-4 border-blue-600;
   }
 
   &__nav {
-    @apply border-4 border-green-600;
+    @apply lg:w-1/2;
     @apply shrink-0;
+    @apply order-1;
   }
 
   &__body {
+    @apply lg:w-1/2;
     @apply grow;
-    @apply border-4 border-orange-800;
+    @apply order-3 lg:order-2;
   }
 
   &__image {
+    @apply relative overflow-hidden;
+    @apply order-2 lg:order-3;
+    @apply lg:w-1/2;
     @apply shrink-0;
     @apply h-auto lg:h-screen;
-    @apply border-4 border-black;
+    @apply flex flex-col items-center justify-center;
+
+    $parent: &;
+
+    &__layer {
+      @apply absolute right-0 top-0 bottom-0;
+      @apply block h-full;
+      @apply bg-raffia;
+    }
+
+    &--ingredients {
+      @apply lg:p-20;
+
+      #{$parent} {
+        &__layer {
+          @apply bg-opacity-75;
+        }
+      }
+
+      & > div {
+        img {
+          @media (max-width: 768px) {
+            @apply w-auto;
+          }
+        }
+      }
+    }
+
+    &--single {
+      @apply p-6;
+    }
   }
 }
