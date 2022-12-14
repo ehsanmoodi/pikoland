@@ -1,0 +1,31 @@
+.single {
+  @apply h-full max-h-full;
+  @apply flex flex-col flex-nowrap;
+
+  &__title {
+    @apply grow-0 shrink-0;
+    @apply font-black text-2xl lg:text-3xl;
+    @apply px-4 lg:px-6;
+    @apply text-center lg:text-start;
+    @apply flex items-center justify-center;
+    @apply my-8 lg:my-0;
+
+    @screen lg {
+      height: 25%;
+      max-height: 25%;
+    }
+  }
+
+  &__body {
+    @apply grow-0 shrink-0;
+    @apply overflow-scroll;
+    @apply font-light text-base leading-7 text-justify;
+    @apply bg-parchment;
+    @apply mx-4 lg:mx-0 p-4 lg:px-6;
+
+    @screen lg {
+      height: 75%;
+      max-height: 75%;
+    }
+  }
+}
