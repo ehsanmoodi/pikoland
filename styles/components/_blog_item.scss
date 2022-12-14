@@ -1,0 +1,76 @@
+.blog-item {
+  @apply flex flex-col;
+  @apply lg:flex-row;
+
+  $parent: &;
+
+  &:hover {
+    #{$parent} {
+      &__body {
+        &__meta {
+          &__link {
+            svg {
+              @apply animate-bounce-horizontal;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    @apply relative;
+    @apply h-52 w-full;
+    @apply lg:h-40 lg:w-60;
+
+    img {
+      @apply w-full h-full object-cover object-center;
+    }
+
+    &__layer {
+      content: "";
+      @apply absolute w-full h-full bg-raffia;
+      @apply top-0 bottom-0 right-0;
+    }
+  }
+
+  &__body {
+    @apply relative;
+    @apply grow;
+    @apply bg-parchment;
+    @apply mx-4 p-4 -mt-20 lg:mx-0 lg:px-5 lg:my-4 lg:-ml-28;
+    @apply flex flex-col gap-4 justify-between;
+
+    &__excerpt {
+      @apply font-normal text-base lg:text-lg leading-7;
+    }
+
+    &__meta {
+      @apply flex items-center justify-between gap-4;
+
+      &__link {
+        @apply flex items-center gap-2;
+        @apply font-normal text-sm lg:text-base;
+      }
+
+      &__date {
+        @apply font-light text-sm;
+        @apply flex items-center gap-1;
+
+        strong {
+          @apply font-semibold;
+        }
+
+        &::before {
+          content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' stroke-width='1.5' d='M6.667 1.667v2.5M13.333 1.667v2.5'/%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' stroke-width='1.5' d='M2.917 7.575h14.167' opacity='.4'/%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' stroke-width='1.5' d='M17.5 7.083v7.083c0 2.5-1.25 4.167-4.167 4.167H6.667c-2.917 0-4.167-1.666-4.167-4.166V7.082c0-2.5 1.25-4.167 4.167-4.167h6.666c2.917 0 4.167 1.667 4.167 4.167Z'/%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9.996 11.417h.008M6.912 11.417h.008M6.912 13.916h.008' opacity='.4'/%3E%3C/svg%3E");
+        }
+      }
+    }
+
+    &__layer {
+      content: "";
+      @apply absolute w-full h-full bg-raffia;
+      @apply top-0 bottom-0 left-0;
+    }
+  }
+}
