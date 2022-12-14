@@ -1,0 +1,14 @@
+.ingredient {
+  @apply relative overflow-hidden;
+  @apply bg-parchment;
+  @apply flex flex-col lg:flex-row items-center gap-4;
+  @apply px-6 py-4;
+  @apply font-bold text-xl lg:text-3xl text-center lg:text-start;
+
+  &__layer {
+    content: "";
+    @apply absolute left-0 top-0;
+    @apply w-full h-full;
+    @apply bg-raffia;
+  }
+}

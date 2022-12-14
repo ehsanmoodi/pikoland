@@ -1,13 +1,15 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { Ingredient, LanguageSwitcher } from "../components";
 
-import coconutPackageImage from "../public/images/pikoland-coconut-package.png";
+// Images
+import coconut from "../public/images/ingredients/coconut.png";
+import cake from "../public/images/ingredients/cake.png";
 import cakeSm from "../public/images/cake-sm.png";
 import cakeMd from "../public/images/cake-md.png";
 import cakeLg from "../public/images/cake-lg.png";
-import Link from "next/link";
-import { LanguageSwitcher } from "../components";
 
 export default function Detail() {
   return (
@@ -54,8 +56,18 @@ export default function Detail() {
                   ></motion.div>
                   Ingredients
                 </h1>
+                <motion.div
+                  initial={{ y: -100 }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    duration: 1,
+                  }}
+                  className="ingredients__body"
+                >
+                  <Ingredient image={coconut} title="Coconut" />
+                  <Ingredient image={cake} title="Light Cake" />
+                </motion.div>
               </div>
-              
             </div>
             <div className="section__image section__image--ingredients bg-coconut">
               <motion.div

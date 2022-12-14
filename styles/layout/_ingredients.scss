@@ -16,4 +16,9 @@
       height: calc(100% + 5px);
     }
   }
+
+  &__body {
+    @apply w-full;
+    @apply flex flex-col gap-6;
+  }
 }
