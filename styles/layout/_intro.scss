@@ -1,0 +1,30 @@
+.intro {
+  @apply h-full;
+  @apply flex flex-col items-center justify-end;
+  @apply lg:items-start;
+
+  &__info {
+    @apply relative;
+    @apply mt-10 mb-16 lg:mb-40;
+    @apply text-center lg:text-start;
+    @apply px-4 lg:px-6;
+
+    &__title {
+      @apply font-black text-5xl md:text-6xl lg:text-7xl my-3 lg:mt-6;
+    }
+
+    &__subtitle {
+      @apply font-normal text-xl lg:text-2xl;
+
+      strong {
+        @apply font-bold;
+      }
+    }
+
+    &__layer {
+      content: "";
+      @apply absolute right-0 top-0 bottom-0;
+      @apply w-full h-full bg-raffia;
+    }
+  }
+}

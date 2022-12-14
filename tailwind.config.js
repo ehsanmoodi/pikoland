@@ -16,6 +16,7 @@ module.exports = {
         coconut: "#0075C9",
         hazelnut: "#AC1D2F",
         raisin: "#531078",
+        parchment: "#F1E1D0",
       },
       keyframes: {
         "bounce-horizontal": {

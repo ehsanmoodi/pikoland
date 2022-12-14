@@ -1,0 +1,49 @@
+.ingredient-link {
+  @apply relative overflow-hidden;
+  @apply w-full;
+  @apply bg-parchment;
+  @apply flex flex-col lg:flex-row lg:items-center;
+  @apply lg:py-6;
+
+  $parent: &;
+
+  &:hover {
+    #{$parent} {
+      &__body {
+        &__href {
+          svg {
+            @apply animate-bounce-horizontal;
+          }
+        }
+      }
+    }
+  }
+
+  &__body {
+    @apply flex flex-col items-center gap-4 lg:items-start lg:justify-center;
+    @apply text-lg lg:text-xl text-center lg:text-start;
+    @apply px-6 pb-6 lg:pb-0;
+
+    &__title {
+      @apply font-normal;
+    }
+
+    &__href {
+      @apply font-bold;
+      @apply flex items-center gap-2;
+
+      &:hover {
+        svg {
+          @apply animate-bounce-horizontal;
+        }
+      }
+    }
+  }
+
+  &__layer {
+    content: "";
+    @apply absolute left-0 bottom-0;
+    @apply w-full h-full;
+    @apply bg-raffia;
+  }
+}
