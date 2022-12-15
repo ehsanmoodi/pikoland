@@ -7,18 +7,6 @@
 
   $parent: &;
 
-  &:hover {
-    #{$parent} {
-      &__body {
-        &__href {
-          svg {
-            @apply animate-bounce-horizontal;
-          }
-        }
-      }
-    }
-  }
-
   &__body {
     @apply flex flex-col items-center gap-4 lg:items-start lg:justify-center;
     @apply text-lg lg:text-xl text-center lg:text-start;
@@ -32,10 +20,8 @@
       @apply font-bold;
       @apply flex items-center gap-2;
 
-      &:hover {
-        svg {
-          @apply animate-bounce-horizontal;
-        }
+      svg {
+        @apply rtl:rotate-180;
       }
     }
   }
