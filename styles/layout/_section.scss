@@ -10,6 +10,7 @@
     @apply flex items-center justify-between gap-4 lg:flex-col;
     @apply lg:border-r border-white border-opacity-30;
     @apply lg:mt-6;
+    @apply rtl:lg:border-l rtl:lg:border-r-0;
 
     span {
       @apply font-normal text-sm lg:text-base;
@@ -47,6 +48,7 @@
 
       &::after {
         @apply -left-full;
+        @apply rtl:left-0 rtl:-right-full;
       }
     }
 
@@ -55,10 +57,9 @@
         @apply inline-flex items-center justify-center h-full;
         @apply relative;
 
-        &::after {
-          content: "";
+        & > span {
           @apply absolute inline-block w-2 h-2 rounded-full;
-          @apply -bottom-1 left-0 right-0 mx-auto z-10;
+          @apply -bottom-1 left-0 right-0 mx-auto z-10 bg-black;
         }
 
         &.coconut {

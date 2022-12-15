@@ -1,15 +1,22 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { BlogItem, LanguageSwitcher } from "../components";
+import { BlogItem, CopyRight, Nav } from "../components";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import coconutPackage from "../public/images/coconut-package.png";
 import blog1 from "../public/images/blog/1.png";
 import blog2 from "../public/images/blog/2.png";
 import blog3 from "../public/images/blog/3.png";
+import { themeData } from "../theme/themeData";
+import { useContext } from "react";
+import ThemeContext from "../theme/themContext";
 
 export default function Blog() {
+  const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
+    useContext(ThemeContext);
+
   return (
     <div>
       <Head>
@@ -19,30 +26,9 @@ export default function Blog() {
 
       <main>
         <section className="section">
-          <div className="section__copy-right">
-            <LanguageSwitcher />
-            <span>© 2022 Pikoland. All Rights Reserved.</span>
-          </div>
+          <CopyRight />
           <div className="section__container">
-            <ul className="section__nav">
-              <li>
-                <a href="" className="carrot">
-                  Carrot
-                </a>
-              </li>
-              <li>
-                <a href="">Hazelnut</a>
-              </li>
-              <li>
-                <a href="">Raisin</a>
-              </li>
-              <li>
-                <a href="">Coconut</a>
-              </li>
-              <li>
-                <Link href="/blog">Blog</Link>
-              </li>
-            </ul>
+            <Nav />
             <div className="section__body">
               <div className="blog">
                 <h1 className="blog__title">
@@ -61,14 +47,22 @@ export default function Blog() {
                 </div>
               </div>
             </div>
-            <div className="section__image bg-coconut">
+            <div
+              className="section__image"
+              style={{
+                background: `${themeData[`${themeCtx.theme}`].bg}`,
+              }}
+            >
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}
                 transition={{ duration: 2, ease: "circIn" }}
                 className="section__image__layer"
               ></motion.div>
-              <Image src={coconutPackage} alt="Coconut Package Image" />
+              <Image
+                src={themeData[`${themeCtx.theme}`].bgImage}
+                alt="Package Image"
+              />
             </div>
           </div>
         </section>
@@ -76,3 +70,11 @@ export default function Blog() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "en", ["common", "nav"])),
+    },
+  };
+};

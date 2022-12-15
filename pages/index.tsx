@@ -1,15 +1,24 @@
 import Head from "next/head";
-import { motion } from "framer-motion";
 import Image from "next/image";
-
-import { IngredientLink, LanguageSwitcher } from "../components";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { CopyRight, IngredientLink, Nav } from "../components";
+import ThemeContext from "../theme/themContext";
 
 // Images
-import coconutPackage from "../public/images/coconut-package.png";
 import coconutCurveText from "../public/images/coconut-curve-text.png";
+import { useContext, useEffect } from "react";
+import { themeData } from "../theme/themeData";
+import { GetStaticProps } from "next";
 
 export default function Home() {
+  const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
+    useContext(ThemeContext);
+
+  useEffect(() => {
+    console.log(themeCtx.theme);
+  }, [themeCtx.theme]);
+
   return (
     <div>
       <Head>
@@ -22,30 +31,9 @@ export default function Home() {
 
       <main>
         <section className="section">
-          <div className="section__copy-right">
-            <LanguageSwitcher />
-            <span>© 2022 Pikoland. All Rights Reserved.</span>
-          </div>
+          <CopyRight />
           <div className="section__container">
-            <ul className="section__nav">
-              <li>
-                <a href="" className="carrot">
-                  Carrot
-                </a>
-              </li>
-              <li>
-                <a href="">Hazelnut</a>
-              </li>
-              <li>
-                <a href="">Raisin</a>
-              </li>
-              <li>
-                <a href="">Coconut</a>
-              </li>
-              <li>
-                <Link href="/blog">Blog</Link>
-              </li>
-            </ul>
+            <Nav />
             <div className="section__body">
               <div className="intro">
                 <div className="intro__info">
@@ -55,7 +43,10 @@ export default function Home() {
                     transition={{ duration: 2, ease: "circIn" }}
                     className="intro__info__layer"
                   ></motion.div>
-                  <Image src={coconutCurveText} alt="curve text" />
+                  <Image
+                    src={themeData[`${themeCtx.theme}`].curveText}
+                    alt="Small Cake, Big Joy"
+                  />
                   <h1 className="intro__info__title">PIKOLAND</h1>
                   <p className="intro__info__subtitle">
                     Mini Cakes With <strong>Carrot & Cinnamon</strong> Flavor
@@ -64,14 +55,22 @@ export default function Home() {
                 <IngredientLink />
               </div>
             </div>
-            <div className="section__image bg-coconut">
+            <div
+              className="section__image"
+              style={{
+                background: `${themeData[`${themeCtx.theme}`].bg}`,
+              }}
+            >
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}
                 transition={{ duration: 2, ease: "circIn" }}
                 className="section__image__layer"
               ></motion.div>
-              <Image src={coconutPackage} alt="Coconut Package Image" />
+              <Image
+                src={themeData[`${themeCtx.theme}`].bgImage}
+                alt="Package Image"
+              />
             </div>
           </div>
         </section>
@@ -79,3 +78,11 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "en", ["common", "nav"])),
+    },
+  };
+};

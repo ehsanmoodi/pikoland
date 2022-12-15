@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "next-i18next";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 import coconutIngredient from "../../public/images/coconut-ingredient.png";
+import ThemeContext from "../../theme/themContext";
+import { themeData } from "../../theme/themeData";
 
 const IngredientLink: React.FC = () => {
+  const { t } = useTranslation("common");
+
+  const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
+    useContext(ThemeContext);
+
   return (
     <div className="ingredient-link">
       <motion.div
@@ -13,7 +22,10 @@ const IngredientLink: React.FC = () => {
         transition={{ duration: 2, ease: "circIn" }}
         className="ingredient-link__layer"
       ></motion.div>
-      <Image src={coconutIngredient} alt="ingredient link" />
+      <Image
+        src={themeData[`${themeCtx.theme}`].bgIngredient}
+        alt="Ingredient Link"
+      />
       <motion.div
         initial={{ x: "100%" }}
         animate={{ x: 0 }}
@@ -25,9 +37,10 @@ const IngredientLink: React.FC = () => {
         </p>
         <Link
           href="/detail"
-          className="ingredient-link__body__href text-coconut"
+          className="ingredient-link__body__href"
+          style={{ color: `${themeData[`${themeCtx.theme}`].color}` }}
         >
-          Ingredients
+          {t("ingredients")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -35,7 +48,9 @@ const IngredientLink: React.FC = () => {
             fill="none"
           >
             <path
-              className="stroke-coconut"
+              style={{
+                stroke: `${themeData[`${themeCtx.theme}`].color}`,
+              }}
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeMiterlimit="10"
@@ -43,7 +58,9 @@ const IngredientLink: React.FC = () => {
               d="M14.43 5.93 20.5 12l-6.07 6.07"
             />
             <path
-              className="stroke-coconut"
+              style={{
+                stroke: `${themeData[`${themeCtx.theme}`].color}`,
+              }}
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeMiterlimit="10"

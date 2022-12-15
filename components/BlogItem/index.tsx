@@ -2,8 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { BlogItemProps } from "./types.d";
+import ThemeContext from "../../theme/themContext";
+import { useContext } from "react";
+import { themeData } from "../../theme/themeData";
 
 const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
+  const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
+    useContext(ThemeContext);
+
   return (
     <article className="blog-item">
       <div className="blog-item__image">
@@ -28,7 +34,8 @@ const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
         <div className="blog-item__body__meta">
           <Link
             href="/single"
-            className="blog-item__body__meta__link text-coconut"
+            className="blog-item__body__meta__link"
+            style={{ color: `${themeData[`${themeCtx.theme}`].color}` }}
           >
             Read More
             <svg
@@ -38,7 +45,9 @@ const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
               fill="none"
             >
               <path
-                className="stroke-coconut"
+                style={{
+                  stroke: `${themeData[`${themeCtx.theme}`].color}`,
+                }}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeMiterlimit="10"
@@ -46,7 +55,9 @@ const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
                 d="M12.025 4.942 17.083 10l-5.058 5.059"
               />
               <path
-                className="stroke-coconut"
+                style={{
+                  stroke: `${themeData[`${themeCtx.theme}`].color}`,
+                }}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeMiterlimit="10"
