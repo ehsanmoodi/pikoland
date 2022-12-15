@@ -2,20 +2,24 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { BlogItem, CopyRight, Nav } from "../components";
+import { BlogItem, CopyRight, Nav } from "../../components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
-import coconutPackage from "../public/images/coconut-package.png";
-import blog1 from "../public/images/blog/1.png";
-import blog2 from "../public/images/blog/2.png";
-import blog3 from "../public/images/blog/3.png";
-import { themeData } from "../theme/themeData";
-import { useContext } from "react";
-import ThemeContext from "../theme/themContext";
+import { themeData } from "../../theme/themeData";
+import { useContext, useEffect } from "react";
+import ThemeContext from "../../theme/themContext";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { blogs } from "../../content/blog";
 
 export default function Blog() {
+  const { locale } = useRouter();
+  const { t } = useTranslation(["common"]);
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
+
+  useEffect(() => {
+    console.log(locale);
+  }, []);
 
   return (
     <div>
@@ -38,12 +42,18 @@ export default function Blog() {
                     transition={{ duration: 1, ease: "circIn" }}
                     className="blog__title__layer"
                   ></motion.div>
-                  Blog
+                  {t("blog", { ns: "common" })}
                 </h1>
                 <div className="blog__body">
-                  <BlogItem image={blog1} />
-                  <BlogItem image={blog2} />
-                  <BlogItem image={blog3} />
+                  {blogs.map((item) => (
+                    <BlogItem
+                      key={item.slug}
+                      image={item.thumbnail}
+                      title={locale === "en" ? item.title.en : item.title.fa}
+                      date={locale === "en" ? item.date.en : item.date.fa}
+                      link={`/blog/${item.slug}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

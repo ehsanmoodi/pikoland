@@ -61,38 +61,6 @@
           @apply absolute inline-block w-2 h-2 rounded-full;
           @apply -bottom-1 left-0 right-0 mx-auto z-10 bg-black;
         }
-
-        &.coconut {
-          @apply text-coconut;
-
-          &::after {
-            @apply bg-coconut;
-          }
-        }
-
-        &.carrot {
-          @apply text-carrot;
-
-          &::after {
-            @apply bg-carrot;
-          }
-        }
-
-        &.hazelnut {
-          @apply text-hazelnut;
-
-          &::after {
-            @apply bg-hazelnut;
-          }
-        }
-
-        &.raisin {
-          @apply text-raisin;
-
-          &::after {
-            @apply bg-raisin;
-          }
-        }
       }
     }
   }

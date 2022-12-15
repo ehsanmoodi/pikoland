@@ -2,22 +2,6 @@
   @apply flex flex-col;
   @apply lg:flex-row;
 
-  $parent: &;
-
-  &:hover {
-    #{$parent} {
-      &__body {
-        &__meta {
-          &__link {
-            svg {
-              @apply animate-bounce-horizontal;
-            }
-          }
-        }
-      }
-    }
-  }
-
   &__image {
     @apply relative;
     @apply h-52 w-full;
@@ -38,7 +22,7 @@
     @apply relative;
     @apply grow;
     @apply bg-parchment;
-    @apply mx-4 p-4 -mt-20 lg:mx-0 lg:px-5 lg:my-4 lg:-ml-28;
+    @apply mx-4 p-4 -mt-20 lg:mx-0 lg:px-5 lg:my-4 ltr:lg:-ml-28 rtl:lg:-mr-28;
     @apply flex flex-col gap-4 justify-between;
 
     &__excerpt {
@@ -51,6 +35,10 @@
       &__link {
         @apply flex items-center gap-2;
         @apply font-normal text-sm lg:text-base;
+
+        svg {
+          @apply rtl:rotate-180;
+        }
       }
 
       &__date {

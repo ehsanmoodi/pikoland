@@ -5,8 +5,10 @@ import type { BlogItemProps } from "./types.d";
 import ThemeContext from "../../theme/themContext";
 import { useContext } from "react";
 import { themeData } from "../../theme/themeData";
+import { useTranslation } from "next-i18next";
 
-const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
+const BlogItem: React.FC<BlogItemProps> = ({ image, title, date, link }) => {
+  const { t } = useTranslation("common");
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
 
@@ -19,7 +21,7 @@ const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
           transition={{ duration: 2, ease: "circIn" }}
           className="blog-item__image__layer"
         ></motion.div>
-        <Image src={image} alt="blog 1" />
+        <Image src={image} alt={title} />
       </div>
       <div className="blog-item__body">
         <motion.div
@@ -28,16 +30,14 @@ const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
           transition={{ duration: 2, ease: "circIn" }}
           className="blog-item__body__layer"
         ></motion.div>
-        <p className="blog-item__body__excerpt">
-          Not only the coolest but here’s the crispiest part of your day
-        </p>
+        <p className="blog-item__body__excerpt">{title}</p>
         <div className="blog-item__body__meta">
           <Link
-            href="/single"
+            href={link}
             className="blog-item__body__meta__link"
             style={{ color: `${themeData[`${themeCtx.theme}`].color}` }}
           >
-            Read More
+            {t("read-more")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -67,9 +67,10 @@ const BlogItem: React.FC<BlogItemProps> = ({ image }) => {
               />
             </svg>
           </Link>
-          <span className="blog-item__body__meta__date">
-            17 <strong> Oct </strong> 2022
-          </span>
+          <span
+            className="blog-item__body__meta__date"
+            dangerouslySetInnerHTML={{ __html: date }}
+          />
         </div>
       </div>
     </article>

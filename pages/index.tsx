@@ -6,7 +6,7 @@ import { CopyRight, IngredientLink, Nav } from "../components";
 import ThemeContext from "../theme/themContext";
 
 // Images
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { themeData } from "../theme/themeData";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
