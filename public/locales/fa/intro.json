@@ -1,0 +1,18 @@
+{
+  "carrot": {
+    "subtitle": "مینی کیک با طعم <strong>هویج و دارچین</strong>",
+    "ingredientDescription": "پیکولند، کوچک اما لذت‌بخش برای دورهمی‌های دوستانه"
+  },
+  "hazelnut": {
+    "subtitle": "مینی کیک <strong>شکلاتی</strong> با طعم <strong>فندق</strong>",
+    "ingredientDescription": "پیکولند، کوچک اما لذت‌بخش برای دورهمی‌های دوستانه"
+  },
+  "raisin": {
+    "subtitle": "مینی کیک با طعم <strong>کشمش</strong>",
+    "ingredientDescription": "پیکولند، کوچک اما لذت‌بخش برای دورهمی‌های دوستانه"
+  },
+  "coconut": {
+    "subtitle": "مینی کیک با طعم <strong>نارگیل</strong>",
+    "ingredientDescription": "پیکولند، کوچک اما لذت‌بخش برای دورهمی‌های دوستانه"
+  }
+}

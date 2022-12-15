@@ -3,13 +3,15 @@ import { useTranslation } from "next-i18next";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useContext } from "react";
-import coconutIngredient from "../../public/images/coconut-ingredient.png";
 import ThemeContext from "../../theme/themContext";
 import { themeData } from "../../theme/themeData";
 
 const IngredientLink: React.FC = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation(["common", "intro"]);
+
+  const { locale } = useRouter();
 
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
@@ -27,20 +29,20 @@ const IngredientLink: React.FC = () => {
         alt="Ingredient Link"
       />
       <motion.div
-        initial={{ x: "100%" }}
+        initial={locale === "en" ? { x: "100%" } : { x: "-100%" }}
         animate={{ x: 0 }}
         transition={{ duration: 0.75, delay: 2, ease: "backOut" }}
         className="ingredient-link__body"
       >
         <p className="ingredient-link__body__title">
-          Pikoland is a Small Cake, Big joy for intimate gathering
+          {t(`${themeCtx.theme}.ingredientDescription`, { ns: "intro" })}
         </p>
         <Link
           href="/detail"
           className="ingredient-link__body__href"
           style={{ color: `${themeData[`${themeCtx.theme}`].color}` }}
         >
-          {t("ingredients")}
+          {t("ingredients", { ns: "common" })}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

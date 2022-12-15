@@ -11,6 +11,7 @@
 
     &__title {
       @apply font-black text-5xl md:text-6xl lg:text-7xl my-3 lg:mt-6;
+      @apply rtl:lg:mr-10;
     }
 
     &__subtitle {

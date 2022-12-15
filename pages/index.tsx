@@ -6,12 +6,13 @@ import { CopyRight, IngredientLink, Nav } from "../components";
 import ThemeContext from "../theme/themContext";
 
 // Images
-import coconutCurveText from "../public/images/coconut-curve-text.png";
 import { useContext, useEffect } from "react";
 import { themeData } from "../theme/themeData";
 import { GetStaticProps } from "next";
+import { useTranslation } from "next-i18next";
 
 export default function Home() {
+  const { t } = useTranslation(["common", "intro"]);
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
 
@@ -47,10 +48,15 @@ export default function Home() {
                     src={themeData[`${themeCtx.theme}`].curveText}
                     alt="Small Cake, Big Joy"
                   />
-                  <h1 className="intro__info__title">PIKOLAND</h1>
-                  <p className="intro__info__subtitle">
-                    Mini Cakes With <strong>Carrot & Cinnamon</strong> Flavor
-                  </p>
+                  <h1 className="intro__info__title">
+                    {t("bigTitle", { ns: "common" })}
+                  </h1>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: t(`${themeCtx.theme}.subtitle`, { ns: "intro" }),
+                    }}
+                    className="intro__info__subtitle"
+                  />
                 </div>
                 <IngredientLink />
               </div>
@@ -82,7 +88,11 @@ export default function Home() {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "nav"])),
+      ...(await serverSideTranslations(locale ?? "en", [
+        "common",
+        "nav",
+        "intro",
+      ])),
     },
   };
 };

@@ -1,0 +1,18 @@
+{
+  "carrot": {
+    "subtitle": "Mini Cakes With <strong>Carrot & Cinnamon</strong> Flavor",
+    "ingredientDescription": "Pikoland is a Small Cake, Big joy for intimate gathering"
+  },
+  "hazelnut": {
+    "subtitle": "Mini <strong>Chocolate</strong> Cakes with <strong>Hazelnut</strong> Filling",
+    "ingredientDescription": "Pikoland is a Small Cake, Big joy for intimate gathering"
+  },
+  "raisin": {
+    "subtitle": "Mini Cakes With <strong>Raisins</strong> Flavor",
+    "ingredientDescription": "Pikoland is a Small Cake, Big joy for intimate gathering"
+  },
+  "coconut": {
+    "subtitle": "Mini Cakes With <strong>Coconut</strong> Flavor",
+    "ingredientDescription": "Pikoland is a Small Cake, Big joy for intimate gathering"
+  }
+}
