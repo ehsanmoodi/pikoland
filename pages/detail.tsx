@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { Ingredient, LanguageSwitcher } from "../components";
+import { CopyRight, Ingredient, Nav } from "../components";
 
 // Images
 import coconut from "../public/images/ingredients/coconut.png";
@@ -10,8 +9,19 @@ import cake from "../public/images/ingredients/cake.png";
 import cakeSm from "../public/images/cake-sm.png";
 import cakeMd from "../public/images/cake-md.png";
 import cakeLg from "../public/images/cake-lg.png";
+import { useTranslation } from "next-i18next";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useContext } from "react";
+import ThemeContext from "../theme/themContext";
+import { themeData } from "../theme/themeData";
 
 export default function Detail() {
+  const { t } = useTranslation(["common", "ingredients"]);
+
+  const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
+    useContext(ThemeContext);
+
   return (
     <div>
       <Head>
@@ -21,30 +31,9 @@ export default function Detail() {
 
       <main>
         <section className="section">
-          <div className="section__copy-right">
-            <LanguageSwitcher />
-            <span>© 2022 Pikoland. All Rights Reserved.</span>
-          </div>
+          <CopyRight />
           <div className="section__container">
-            <ul className="section__nav">
-              <li>
-                <a href="" className="carrot">
-                  Carrot
-                </a>
-              </li>
-              <li>
-                <a href="">Hazelnut</a>
-              </li>
-              <li>
-                <a href="">Raisin</a>
-              </li>
-              <li>
-                <a href="">Coconut</a>
-              </li>
-              <li>
-                <Link href="/blog">Blog</Link>
-              </li>
-            </ul>
+            <Nav />
             <div className="section__body">
               <div className="ingredients">
                 <h1 className="ingredients__title">
@@ -54,7 +43,7 @@ export default function Detail() {
                     transition={{ duration: 1, ease: "circIn" }}
                     className="ingredients__title__layer"
                   ></motion.div>
-                  Ingredients
+                  {t("ingredients", { ns: "common" })}
                 </h1>
                 <motion.div
                   initial={{ y: -100 }}
@@ -64,12 +53,22 @@ export default function Detail() {
                   }}
                   className="ingredients__body"
                 >
-                  <Ingredient image={coconut} title="Coconut" />
-                  <Ingredient image={cake} title="Light Cake" />
+                  {themeData[`${themeCtx.theme}`].ingredients.map((item) => (
+                    <Ingredient
+                      key={item.id}
+                      image={item.image}
+                      title={t(item.id, { ns: "ingredients" })}
+                    />
+                  ))}
                 </motion.div>
               </div>
             </div>
-            <div className="section__image section__image--ingredients bg-coconut">
+            <div
+              className="section__image section__image--ingredients"
+              style={{
+                background: `${themeData[`${themeCtx.theme}`].bg}`,
+              }}
+            >
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}
@@ -107,3 +106,15 @@ export default function Detail() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "en", [
+        "common",
+        "nav",
+        "ingredients",
+      ])),
+    },
+  };
+};

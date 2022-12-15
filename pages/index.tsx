@@ -16,10 +16,6 @@ export default function Home() {
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
 
-  useEffect(() => {
-    console.log(themeCtx.theme);
-  }, [themeCtx.theme]);
-
   return (
     <div>
       <Head>

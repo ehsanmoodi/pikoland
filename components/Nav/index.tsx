@@ -7,15 +7,10 @@ import { themeData } from "../../theme/themeData";
 
 const Nav: React.FC = () => {
   const { t } = useTranslation("nav");
-  const [active, setActive] = useState("carrot");
   const router = useRouter();
 
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
-
-  useEffect(() => {
-    console.log(router);
-  }, []);
 
   const items: {
     id: string;
@@ -41,15 +36,11 @@ const Nav: React.FC = () => {
 
   const handleClick = (event: MouseEvent, theme: string) => {
     event.preventDefault();
-    // console.log(active);
-    // console.log(theme);
-
-    if (active !== theme) {
-      router.push("/");
-      themeCtx.toggleTheme(theme);
-      setActive(theme);
-    }
+    themeCtx.toggleTheme(theme);
+    router.push("/");
   };
+
+  useEffect(() => {}, [themeCtx.theme]);
 
   return (
     <ul className="section__nav">
@@ -59,7 +50,8 @@ const Nav: React.FC = () => {
             onClick={(e: MouseEvent) => handleClick(e, item.id)}
             style={{
               color: `${
-                themeCtx.theme === item.id && router.asPath === "/"
+                themeCtx.theme === item.id &&
+                (router.asPath === "/" || router.asPath === "/detail")
                   ? `${themeData[themeCtx.theme].color}`
                   : ""
               }`,
@@ -70,7 +62,8 @@ const Nav: React.FC = () => {
             <span
               style={{
                 display: `${
-                  themeCtx.theme === item.id && router.asPath === "/"
+                  themeCtx.theme === item.id &&
+                  (router.asPath === "/" || router.asPath === "/detail")
                     ? ""
                     : "none"
                 }`,
