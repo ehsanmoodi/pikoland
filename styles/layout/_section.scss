@@ -5,6 +5,7 @@
   @apply flex flex-col lg:flex-row;
 
   &__copy-right {
+    @apply relative z-10;
     @apply order-2 lg:order-1;
     @apply px-4 py-6 lg:px-6 lg:py-4;
     @apply flex items-center justify-between gap-4 lg:flex-col;

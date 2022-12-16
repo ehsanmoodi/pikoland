@@ -1,10 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { CopyRight, IngredientLink, Nav, ProductNav } from "../components";
 import ThemeContext from "../theme/themContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { themeData } from "../theme/themeData";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
@@ -13,6 +19,32 @@ export default function Home() {
   const { t } = useTranslation(["common", "intro"]);
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
+
+  const [angle, setAngle] = useState(20);
+
+  const y = useMotionValue(0.5);
+  const x = useMotionValue(0.5);
+
+  const translateX = useTransform(x, [0, 1], [-angle, angle], {
+    clamp: true,
+  });
+
+  const translateY = useTransform(y, [0, 1], [angle, -angle], {
+    clamp: true,
+  });
+
+  const onMove = (e: any) => {
+    // get position information for the card
+    const bounds = e.currentTarget.getBoundingClientRect();
+
+    // set x,y local coordinates
+    const xValue = (e.clientX - bounds.x) / e.currentTarget.clientWidth;
+    const yValue = (e.clientY - bounds.y) / e.currentTarget.clientHeight;
+
+    // update MotionValues
+    x.set(xValue, true);
+    y.set(yValue, true);
+  };
 
   return (
     <div>
@@ -29,6 +61,7 @@ export default function Home() {
           <motion.section
             key={themeData[themeCtx.theme].id}
             className="section"
+            onPointerMove={onMove}
           >
             <CopyRight />
             <div className="section__container">
@@ -70,6 +103,10 @@ export default function Home() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1 }}
                   className="section__body__bg"
+                  style={{
+                    translateY,
+                    translateX,
+                  }}
                 >
                   <Image
                     src={themeData[`${themeCtx.theme}`].introBg}

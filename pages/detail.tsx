@@ -1,11 +1,11 @@
 import Head from "next/head";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import { CopyRight, Ingredient, Nav } from "../components";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ThemeContext from "../theme/themContext";
 import { themeData } from "../theme/themeData";
 import { useRouter } from "next/router";
@@ -22,6 +22,32 @@ export default function Detail() {
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
 
+  const [angle, setAngle] = useState(20);
+
+  const y = useMotionValue(0.5);
+  const x = useMotionValue(0.5);
+
+  const translateX = useTransform(x, [0, 1], [-angle, angle], {
+    clamp: true,
+  });
+
+  const translateY = useTransform(y, [0, 1], [angle, -angle], {
+    clamp: true,
+  });
+
+  const onMove = (e: any) => {
+    // get position information for the card
+    const bounds = e.currentTarget.getBoundingClientRect();
+
+    // set x,y local coordinates
+    const xValue = (e.clientX - bounds.x) / e.currentTarget.clientWidth;
+    const yValue = (e.clientY - bounds.y) / e.currentTarget.clientHeight;
+
+    // update MotionValues
+    x.set(xValue, true);
+    y.set(yValue, true);
+  };
+
   return (
     <div>
       <Head>
@@ -30,7 +56,7 @@ export default function Detail() {
       </Head>
 
       <main>
-        <section className="section">
+        <section className="section" onPointerMove={onMove}>
           <CopyRight />
           <div className="section__container">
             <Nav classes="mobile" />
@@ -71,6 +97,10 @@ export default function Detail() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
                 className="section__body__bg"
+                style={{
+                  translateY,
+                  translateX,
+                }}
               >
                 <Image
                   src={themeData[`${themeCtx.theme}`].detailBg}
