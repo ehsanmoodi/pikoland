@@ -1,0 +1,35 @@
+.product-nav {
+  @apply absolute left-0 right-0 m-auto;
+  @apply bg-raffia;
+  width: 104px;
+  height: 52px;
+  bottom: -26px;
+  @apply flex;
+
+  @screen lg {
+    width: 104px;
+    height: 52px;
+    bottom: unset;
+    right: unset;
+    left: -52px;
+
+    [dir="rtl"] & {
+      left: unset;
+      right: -52px;
+    }
+  }
+
+  .prev,
+  .next {
+    @apply w-full;
+    @apply flex items-center justify-center;
+  }
+
+  // .prev {
+  //   border: 1px solid red;
+  // }
+
+  // .next {
+  //   border: 1px solid blue;
+  // }
+}

@@ -80,7 +80,7 @@
 
   &__image {
     @apply w-full grow order-1 lg:order-2;
-    @apply relative overflow-hidden;
+    @apply relative;
     @apply h-auto lg:h-screen;
     @apply flex items-center justify-center;
     @apply transition-all duration-1000;
@@ -96,6 +96,10 @@
         right: unset;
         @apply left-0;
       }
+    }
+
+    &--intro {
+      @apply mb-10 lg:mb-0;
     }
 
     &--ingredients {

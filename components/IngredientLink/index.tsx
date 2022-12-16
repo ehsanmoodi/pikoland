@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 
 import Image from "next/image";
@@ -17,65 +17,67 @@ const IngredientLink: React.FC = () => {
     useContext(ThemeContext);
 
   return (
-    <div className="ingredient-link">
-      <motion.div
-        initial={{ height: "100%" }}
-        animate={{ height: 0 }}
-        exit={{ height: "100%" }}
-        transition={{ duration: 1, ease: "circIn" }}
-        className="ingredient-link__layer"
-      ></motion.div>
-      <Image
-        src={themeData[`${themeCtx.theme}`].bgIngredient}
-        alt="Ingredient Link"
-      />
-      <motion.div
-        initial={locale === "en" ? { x: "100%" } : { x: "-100%" }}
-        animate={{ x: 0 }}
-        exit={locale === "en" ? { x: "100%" } : { x: "-100%" }}
-        transition={{ duration: 0.5, delay: 1, ease: "backOut" }}
-        className="ingredient-link__body"
-      >
-        <p className="ingredient-link__body__title">
-          {t(`${themeCtx.theme}.ingredientDescription`, { ns: "intro" })}
-        </p>
-        <Link
-          href="/detail"
-          className="ingredient-link__body__href"
-          style={{ color: `${themeData[`${themeCtx.theme}`].color}` }}
+    <AnimatePresence mode="wait">
+      <div key={themeData[themeCtx.theme].id} className="ingredient-link">
+        <motion.div
+          initial={{ height: "100%" }}
+          animate={{ height: 0 }}
+          exit={{ height: "100%" }}
+          transition={{ duration: 1, ease: "circIn" }}
+          className="ingredient-link__layer"
+        ></motion.div>
+        <Image
+          src={themeData[`${themeCtx.theme}`].bgIngredient}
+          alt="Ingredient Link"
+        />
+        <motion.div
+          initial={locale === "en" ? { x: "100%" } : { x: "-100%" }}
+          animate={{ x: 0 }}
+          exit={locale === "en" ? { x: "100%" } : { x: "-100%" }}
+          transition={{ duration: 0.5, delay: 1, ease: "backOut" }}
+          className="ingredient-link__body"
         >
-          {t("ingredients", { ns: "common" })}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
+          <p className="ingredient-link__body__title">
+            {t(`${themeCtx.theme}.ingredientDescription`, { ns: "intro" })}
+          </p>
+          <Link
+            href="/detail"
+            className="ingredient-link__body__href"
+            style={{ color: `${themeData[`${themeCtx.theme}`].color}` }}
           >
-            <path
-              style={{
-                stroke: `${themeData[`${themeCtx.theme}`].color}`,
-              }}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeMiterlimit="10"
-              strokeWidth="2"
-              d="M14.43 5.93 20.5 12l-6.07 6.07"
-            />
-            <path
-              style={{
-                stroke: `${themeData[`${themeCtx.theme}`].color}`,
-              }}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeMiterlimit="10"
-              strokeWidth="2"
-              d="M3.5 12h16.83"
-              opacity=".4"
-            />
-          </svg>
-        </Link>
-      </motion.div>
-    </div>
+            {t("ingredients", { ns: "common" })}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+            >
+              <path
+                style={{
+                  stroke: `${themeData[`${themeCtx.theme}`].color}`,
+                }}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="2"
+                d="M14.43 5.93 20.5 12l-6.07 6.07"
+              />
+              <path
+                style={{
+                  stroke: `${themeData[`${themeCtx.theme}`].color}`,
+                }}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="2"
+                d="M3.5 12h16.83"
+                opacity=".4"
+              />
+            </svg>
+          </Link>
+        </motion.div>
+      </div>
+    </AnimatePresence>
   );
 };
 
