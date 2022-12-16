@@ -6,6 +6,7 @@ import ThemeContext from "../../theme/themContext";
 import { useContext } from "react";
 import { themeData } from "../../theme/themeData";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 const BlogItem: React.FC<BlogItemProps> = ({ image, title, date, link }) => {
   const { t } = useTranslation("common");
@@ -18,7 +19,8 @@ const BlogItem: React.FC<BlogItemProps> = ({ image, title, date, link }) => {
         <motion.div
           initial={{ width: "100%" }}
           animate={{ width: 0 }}
-          transition={{ duration: 2, ease: "circIn" }}
+          exit={{ width: "100%" }}
+          transition={{ duration: 1, ease: "circIn" }}
           className="blog-item__image__layer"
         ></motion.div>
         <Image src={image} alt={title} />
@@ -27,7 +29,8 @@ const BlogItem: React.FC<BlogItemProps> = ({ image, title, date, link }) => {
         <motion.div
           initial={{ width: "100%" }}
           animate={{ width: 0 }}
-          transition={{ duration: 2, ease: "circIn" }}
+          exit={{ width: "100%" }}
+          transition={{ duration: 1, ease: "circIn" }}
           className="blog-item__body__layer"
         ></motion.div>
         <p className="blog-item__body__excerpt">{title}</p>

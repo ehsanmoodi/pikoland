@@ -8,7 +8,8 @@ const Ingredient: React.FC<IngredientProps> = ({ image, title }) => {
       <motion.div
         initial={{ height: "100%" }}
         animate={{ height: 0 }}
-        transition={{ duration: 2, ease: "circIn" }}
+        exit={{ height: "100%" }}
+        transition={{ duration: 1, ease: "circIn" }}
         className="ingredient__layer"
       ></motion.div>
       <Image src={image} alt="ingredient" />

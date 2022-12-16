@@ -26,6 +26,11 @@
       content: "";
       @apply absolute right-0 top-0 bottom-0;
       @apply w-full h-full bg-raffia;
+
+      [dir="rtl"] & {
+        right: unset;
+        @apply left-0;
+      }
     }
   }
 }

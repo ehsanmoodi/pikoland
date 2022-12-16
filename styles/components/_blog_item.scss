@@ -13,8 +13,13 @@
 
     &__layer {
       content: "";
-      @apply absolute w-full h-full bg-raffia;
+      @apply absolute w-full h-full bg-raffia z-10;
       @apply top-0 bottom-0 right-0;
+
+      [dir="rtl"] & {
+        right: unset;
+        @apply left-0;
+      }
     }
   }
 
@@ -57,8 +62,13 @@
 
     &__layer {
       content: "";
-      @apply absolute w-full h-full bg-raffia;
+      @apply absolute w-full h-full bg-raffia z-10;
       @apply top-0 bottom-0 left-0;
+
+      [dir="rtl"] & {
+        left: unset;
+        @apply right-0;
+      }
     }
   }
 }

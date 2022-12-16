@@ -78,6 +78,7 @@
     @apply shrink-0;
     @apply h-auto lg:h-screen;
     @apply flex flex-col items-center justify-center;
+    @apply transition-all duration-1000;
 
     $parent: &;
 
@@ -85,6 +86,11 @@
       @apply absolute right-0 top-0 bottom-0;
       @apply block h-full;
       @apply bg-raffia;
+
+      [dir="rtl"] & {
+        right: unset;
+        @apply left-0;
+      }
     }
 
     &--ingredients {
@@ -92,7 +98,7 @@
 
       #{$parent} {
         &__layer {
-          @apply bg-opacity-75;
+          // @apply bg-opacity-75;
         }
       }
 

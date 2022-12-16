@@ -14,6 +14,11 @@
       @apply absolute right-0 top-0 bottom-0 my-auto;
       @apply w-full bg-raffia;
       height: calc(100% + 5px);
+
+      [dir="rtl"] & {
+        right: unset;
+        @apply left-0;
+      }
     }
   }
 

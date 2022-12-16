@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { BlogItem, CopyRight, Nav } from "../../components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { themeData } from "../../theme/themeData";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import ThemeContext from "../../theme/themContext";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
@@ -16,10 +16,6 @@ export default function Blog() {
   const { t } = useTranslation(["common"]);
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
-
-  useEffect(() => {
-    console.log(locale);
-  }, []);
 
   return (
     <div>
@@ -39,6 +35,7 @@ export default function Blog() {
                   <motion.div
                     initial={{ width: "100%" }}
                     animate={{ width: 0 }}
+                    exit={{ width: "100%" }}
                     transition={{ duration: 1, ease: "circIn" }}
                     className="blog__title__layer"
                   ></motion.div>
@@ -60,13 +57,14 @@ export default function Blog() {
             <div
               className="section__image"
               style={{
-                background: `${themeData[`${themeCtx.theme}`].bg}`,
+                backgroundColor: `${themeData[`${themeCtx.theme}`].color}`,
               }}
             >
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}
-                transition={{ duration: 2, ease: "circIn" }}
+                exit={{ width: "100%" }}
+                transition={{ duration: 1, ease: "circIn" }}
                 className="section__image__layer"
               ></motion.div>
               <Image

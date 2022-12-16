@@ -21,7 +21,8 @@ const IngredientLink: React.FC = () => {
       <motion.div
         initial={{ height: "100%" }}
         animate={{ height: 0 }}
-        transition={{ duration: 2, ease: "circIn" }}
+        exit={{ height: "100%" }}
+        transition={{ duration: 1, ease: "circIn" }}
         className="ingredient-link__layer"
       ></motion.div>
       <Image
@@ -31,7 +32,8 @@ const IngredientLink: React.FC = () => {
       <motion.div
         initial={locale === "en" ? { x: "100%" } : { x: "-100%" }}
         animate={{ x: 0 }}
-        transition={{ duration: 0.75, delay: 2, ease: "backOut" }}
+        exit={locale === "en" ? { x: "100%" } : { x: "-100%" }}
+        transition={{ duration: 0.5, delay: 1, ease: "backOut" }}
         className="ingredient-link__body"
       >
         <p className="ingredient-link__body__title">

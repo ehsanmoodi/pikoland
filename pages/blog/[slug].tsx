@@ -39,15 +39,17 @@ const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{
-                  duration: 1,
+                  duration: 0.5,
                 }}
                 className="single"
               >
                 <motion.h1
                   initial={{ y: -100 }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 1, ease: "backOut" }}
+                  exit={{ y: -100 }}
+                  transition={{ duration: 0.75, ease: "backOut" }}
                   className="single__title"
                 >
                   {title}
@@ -55,7 +57,8 @@ const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 <motion.div
                   initial={{ y: 100 }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 1, ease: "backOut" }}
+                  exit={{ y: 100 }}
+                  transition={{ duration: 0.75, ease: "backOut" }}
                   className="single__body"
                   dangerouslySetInnerHTML={{ __html: content }}
                 />
@@ -64,13 +67,14 @@ const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             <div
               className="section__image section__image--single"
               style={{
-                background: `${themeData[`${themeCtx.theme}`].bg}`,
+                backgroundColor: `${themeData[`${themeCtx.theme}`].color}`,
               }}
             >
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ duration: 1, ease: "backOut" }}
+                exit={{ scale: 0 }}
+                transition={{ duration: 0.75, ease: "backOut" }}
               >
                 <Image src={featureImage} alt="feature image" />
               </motion.div>

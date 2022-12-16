@@ -4,8 +4,6 @@ import Image from "next/image";
 import { CopyRight, Ingredient, Nav } from "../components";
 
 // Images
-import coconut from "../public/images/ingredients/coconut.png";
-import cake from "../public/images/ingredients/cake.png";
 import cakeSm from "../public/images/cake-sm.png";
 import cakeMd from "../public/images/cake-md.png";
 import cakeLg from "../public/images/cake-lg.png";
@@ -15,8 +13,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useContext } from "react";
 import ThemeContext from "../theme/themContext";
 import { themeData } from "../theme/themeData";
+import { useRouter } from "next/router";
 
 export default function Detail() {
+  const { locale } = useRouter();
   const { t } = useTranslation(["common", "ingredients"]);
 
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
@@ -40,6 +40,7 @@ export default function Detail() {
                   <motion.div
                     initial={{ width: "100%" }}
                     animate={{ width: 0 }}
+                    exit={{ width: "100%" }}
                     transition={{ duration: 1, ease: "circIn" }}
                     className="ingredients__title__layer"
                   ></motion.div>
@@ -48,6 +49,7 @@ export default function Detail() {
                 <motion.div
                   initial={{ y: -100 }}
                   animate={{ y: 0 }}
+                  exit={{ y: -100 }}
                   transition={{
                     duration: 1,
                   }}
@@ -66,34 +68,38 @@ export default function Detail() {
             <div
               className="section__image section__image--ingredients"
               style={{
-                background: `${themeData[`${themeCtx.theme}`].bg}`,
+                backgroundColor: `${themeData[`${themeCtx.theme}`].color}`,
               }}
             >
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}
+                exit={{ width: "100%" }}
                 transition={{ duration: 1, ease: "circIn" }}
                 className="section__image__layer"
               ></motion.div>
               <motion.div
-                initial={{ x: "100vw" }}
+                initial={locale === "en" ? { x: "100vw" } : { x: "-100vw" }}
                 animate={{ x: 0 }}
-                transition={{ duration: 1.75, ease: "backOut" }}
+                exit={locale === "en" ? { x: "100vw" } : { x: "-100vw" }}
+                transition={{ duration: 1, ease: "backOut" }}
                 className="lg:self-start -ml-20 lg:ml-0 lg:-mb-14"
               >
                 <Image src={cakeMd} alt="Cake Medium" quality={100} />
               </motion.div>
               <motion.div
-                initial={{ x: "-100vw" }}
+                initial={locale === "en" ? { x: "-100vw" } : { x: "100vw" }}
                 animate={{ x: 0 }}
+                exit={locale === "en" ? { x: "-100vw" } : { x: "100vw" }}
                 transition={{ duration: 1, ease: "backOut", delay: 0.25 }}
                 className="lg:self-end -mr-40 lg:mr-0 -my-8 lg:-my-10"
               >
                 <Image src={cakeSm} alt="Cake Small" quality={100} />
               </motion.div>
               <motion.div
-                initial={{ x: "100vw" }}
+                initial={locale === "en" ? { x: "100vw" } : { x: "-100vw" }}
                 animate={{ x: 0 }}
+                exit={locale === "en" ? { x: "100vw" } : { x: "-100vw" }}
                 transition={{ duration: 1, ease: "backOut", delay: 0.5 }}
                 className="lg:-ml-0"
               >

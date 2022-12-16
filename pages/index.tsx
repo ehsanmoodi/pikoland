@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { CopyRight, IngredientLink, Nav } from "../components";
 import ThemeContext from "../theme/themContext";
-
-// Images
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { themeData } from "../theme/themeData";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
@@ -15,6 +13,8 @@ export default function Home() {
   const { t } = useTranslation(["common", "intro"]);
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
+
+  useEffect(() => {}, [themeCtx]);
 
   return (
     <div>
@@ -37,7 +37,8 @@ export default function Home() {
                   <motion.div
                     initial={{ width: "100%" }}
                     animate={{ width: 0 }}
-                    transition={{ duration: 2, ease: "circIn" }}
+                    exit={{ width: "100%" }}
+                    transition={{ duration: 1, ease: "circIn" }}
                     className="intro__info__layer"
                   ></motion.div>
                   <Image
@@ -60,13 +61,14 @@ export default function Home() {
             <div
               className="section__image"
               style={{
-                background: `${themeData[`${themeCtx.theme}`].bg}`,
+                backgroundColor: `${themeData[`${themeCtx.theme}`].color}`,
               }}
             >
               <motion.div
                 initial={{ width: "100%" }}
                 animate={{ width: 0 }}
-                transition={{ duration: 2, ease: "circIn" }}
+                exit={{ width: "100%" }}
+                transition={{ duration: 1, ease: "circIn" }}
                 className="section__image__layer"
               ></motion.div>
               <Image
