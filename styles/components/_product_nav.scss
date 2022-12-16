@@ -1,5 +1,5 @@
 .product-nav {
-  @apply absolute left-0 right-0 m-auto;
+  @apply absolute left-0 right-0 m-auto z-10;
   @apply bg-raffia;
   width: 104px;
   height: 52px;
@@ -24,12 +24,4 @@
     @apply w-full;
     @apply flex items-center justify-center;
   }
-
-  // .prev {
-  //   border: 1px solid red;
-  // }
-
-  // .next {
-  //   border: 1px solid blue;
-  // }
 }

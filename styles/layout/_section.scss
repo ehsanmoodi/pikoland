@@ -29,7 +29,7 @@
   }
 
   &__nav {
-    @apply relative shrink-0;
+    @apply relative shrink-0 z-10;
     @apply flex justify-center lg:justify-start gap-5 lg:gap-8 mx-4 lg:mx-0 lg:px-6 py-0 my-6;
     @apply font-medium text-sm lg:text-base;
     @apply h-12;
@@ -76,6 +76,15 @@
     @apply w-full grow order-2 lg:order-1;
     @apply h-auto lg:h-full;
     @apply flex flex-col;
+
+    &__bg {
+      @apply absolute inset-0 w-full h-full;
+
+      img {
+        @apply -ml-20;
+        margin-top: 25%;
+      }
+    }
   }
 
   &__image {
@@ -107,7 +116,7 @@
 
       #{$parent} {
         &__layer {
-          // @apply bg-opacity-75;
+          @apply bg-opacity-75;
         }
       }
 

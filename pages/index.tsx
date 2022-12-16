@@ -64,11 +64,23 @@ export default function Home() {
                     <IngredientLink />
                   </div>
                 </div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="section__body__bg"
+                >
+                  <Image
+                    src={themeData[`${themeCtx.theme}`].introBg}
+                    alt="Intro Background"
+                  />
+                </motion.div>
               </div>
               <div
                 className="section__image section__image--intro"
                 style={{
-                  backgroundColor: `${themeData[`${themeCtx.theme}`].color}`,
+                  background: `${themeData[`${themeCtx.theme}`].bg}`,
                 }}
               >
                 <motion.div

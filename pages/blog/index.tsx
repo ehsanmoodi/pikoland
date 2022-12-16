@@ -54,11 +54,23 @@ export default function Blog() {
                   ))}
                 </div>
               </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="section__body__bg"
+              >
+                <Image
+                  src={themeData[`${themeCtx.theme}`].blogBg}
+                  alt="Blog Background"
+                />
+              </motion.div>
             </div>
             <div
               className="section__image"
               style={{
-                backgroundColor: `${themeData[`${themeCtx.theme}`].color}`,
+                background: `${themeData[`${themeCtx.theme}`].bg}`,
               }}
             >
               <motion.div

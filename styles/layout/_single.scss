@@ -1,4 +1,5 @@
 .single {
+  @apply relative z-10;
   @apply flex flex-col items-center justify-end;
 
   @screen lg {

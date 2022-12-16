@@ -26,6 +26,30 @@ import choclateCake from "../public/images/ingredients/choclate-cake.png";
 import hazelnut from "../public/images/ingredients/hazelnut.png";
 import raisin from "../public/images/ingredients/raisin.png";
 
+// Intro Bgs
+import carrotIntroBg from "../public/images/bgs/carrot-bg.png";
+import hazelnutIntroBg from "../public/images/bgs/hazelnut-bg.png";
+import raisinIntroBg from "../public/images/bgs/raisin-bg.png";
+import coconutIntroBg from "../public/images/bgs/coconut-bg.png";
+
+// Igredients Bgs
+import carrotDetailBg from "../public/images/bgs/carrot-detail-bg.png";
+import hazelnutDetailBg from "../public/images/bgs/hazelnut-detail-bg.png";
+import raisinDetailBg from "../public/images/bgs/raisin-detail-bg.png";
+import coconutDetailBg from "../public/images/bgs/coconut-detail-bg.png";
+
+// Blog Bgs
+import carrotBlogBg from "../public/images/bgs/carrot-blog-bg.png";
+import hazelnutBlogBg from "../public/images/bgs/hazelnut-blog-bg.png";
+import raisinBlogBg from "../public/images/bgs/raisin-blog-bg.png";
+import coconutBlogBg from "../public/images/bgs/coconut-blog-bg.png";
+
+// Single Bgs
+import carrotSingleBg from "../public/images/bgs/carrot-single-bg.png";
+import hazelnutSingleBg from "../public/images/bgs/hazelnut-single-bg.png";
+import raisinSingleBg from "../public/images/bgs/raisin-single-bg.png";
+import coconutSingleBg from "../public/images/bgs/coconut-single-bg.png";
+
 export const themeData: {
   [key: string]: {
     id: string;
@@ -38,6 +62,10 @@ export const themeData: {
       id: string;
       image: StaticImageData;
     }[];
+    introBg: StaticImageData;
+    detailBg: StaticImageData;
+    blogBg: StaticImageData;
+    singleBg: StaticImageData;
   };
 } = {
   carrot: {
@@ -57,6 +85,10 @@ export const themeData: {
         image: cake,
       },
     ],
+    introBg: carrotIntroBg,
+    detailBg: carrotDetailBg,
+    blogBg: carrotBlogBg,
+    singleBg: carrotSingleBg,
   },
   hazelnut: {
     id: "hazelnut",
@@ -75,6 +107,10 @@ export const themeData: {
         image: choclateCake,
       },
     ],
+    introBg: hazelnutIntroBg,
+    detailBg: hazelnutDetailBg,
+    blogBg: hazelnutBlogBg,
+    singleBg: hazelnutSingleBg,
   },
   raisin: {
     id: "raisin",
@@ -93,6 +129,10 @@ export const themeData: {
         image: cake,
       },
     ],
+    introBg: raisinIntroBg,
+    detailBg: raisinDetailBg,
+    blogBg: raisinBlogBg,
+    singleBg: raisinSingleBg,
   },
   coconut: {
     id: "coconut",
@@ -111,5 +151,9 @@ export const themeData: {
         image: cake,
       },
     ],
+    introBg: coconutIntroBg,
+    detailBg: coconutDetailBg,
+    blogBg: coconutBlogBg,
+    singleBg: coconutSingleBg,
   },
 };

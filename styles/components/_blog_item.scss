@@ -1,4 +1,5 @@
 .blog-item {
+  @apply relative z-10;
   @apply flex flex-col;
   @apply lg:flex-row;
 
