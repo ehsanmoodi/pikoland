@@ -114,6 +114,7 @@
 
     &--ingredients {
       @apply lg:p-20;
+      @apply flex-col;
 
       #{$parent} {
         &__layer {
