@@ -23,5 +23,9 @@
   .next {
     @apply w-full;
     @apply flex items-center justify-center;
+
+    svg {
+      @apply rtl:rotate-180;
+    }
   }
 }
