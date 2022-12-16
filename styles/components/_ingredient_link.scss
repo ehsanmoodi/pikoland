@@ -2,13 +2,13 @@
   @apply relative overflow-hidden;
   @apply w-full;
   @apply bg-parchment;
-  @apply flex flex-col lg:flex-row lg:items-center;
+  @apply flex flex-col lg:flex-row items-center;
   @apply lg:py-6;
 
   $parent: &;
 
   &__body {
-    @apply flex flex-col items-center gap-4 lg:items-start lg:justify-center;
+    @apply flex flex-col items-center gap-4 lg:items-start lg:justify-center lg:grow;
     @apply text-lg lg:text-xl text-center lg:text-start;
     @apply px-6 pb-6 lg:pb-0;
 

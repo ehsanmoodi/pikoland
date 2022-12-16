@@ -5,7 +5,9 @@ import { MouseEvent, useContext, useEffect, useState } from "react";
 import ThemeContext from "../../theme/themContext";
 import { themeData } from "../../theme/themeData";
 
-const Nav: React.FC = () => {
+import type { NavProps } from "./types.d";
+
+const Nav: React.FC<NavProps> = ({ classes }) => {
   const { t } = useTranslation("nav");
   const router = useRouter();
 
@@ -43,7 +45,7 @@ const Nav: React.FC = () => {
   useEffect(() => {}, [themeCtx.theme]);
 
   return (
-    <ul className="section__nav">
+    <ul className={`section__nav ${classes}`}>
       {items.map((item) => (
         <li key={item.id}>
           <a

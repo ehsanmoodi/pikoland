@@ -3,10 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import type { GetStaticPaths, InferGetStaticPropsType, NextPage } from "next";
 import { GetStaticProps } from "next";
-
-import blogFeature1 from "../../public/images/blog/feature1.png";
-import Link from "next/link";
-import { CopyRight, LanguageSwitcher, Nav } from "../../components";
+import { CopyRight, Nav } from "../../components";
 import { useContext } from "react";
 import ThemeContext from "../../theme/themContext";
 import { themeData } from "../../theme/themeData";
@@ -34,8 +31,9 @@ const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <section className="section">
           <CopyRight />
           <div className="section__container">
-            <Nav />
+            <Nav classes="mobile" />
             <div className="section__body">
+              <Nav classes="desktop" />
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

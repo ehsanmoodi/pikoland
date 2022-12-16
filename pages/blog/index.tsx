@@ -28,8 +28,9 @@ export default function Blog() {
         <section className="section">
           <CopyRight />
           <div className="section__container">
-            <Nav />
+            <Nav classes="mobile" />
             <div className="section__body">
+              <Nav classes="desktop" />
               <div className="blog">
                 <h1 className="blog__title">
                   <motion.div

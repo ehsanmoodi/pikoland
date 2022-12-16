@@ -1,13 +1,15 @@
 .blog {
-  @apply h-full;
-  @apply flex flex-col items-center justify-end gap-6;
+  @apply flex flex-col items-center justify-end;
   @apply lg:items-start;
+
+  @screen lg {
+    height: calc(100% - 76px - 24px - 24px);
+  }
 
   &__title {
     @apply relative;
-    @apply mt-8 lg:mb-14;
+    @apply px-4 lg:px-6 my-6;
     @apply font-black text-4xl lg:text-5xl;
-    @apply px-4 lg:px-6;
 
     &__layer {
       content: "";
@@ -23,6 +25,7 @@
   }
 
   &__body {
+    @apply overflow-auto;
     @apply w-full;
     @apply flex flex-col gap-6;
     @apply px-4 lg:px-0;

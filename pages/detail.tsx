@@ -2,11 +2,6 @@ import Head from "next/head";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CopyRight, Ingredient, Nav } from "../components";
-
-// Images
-import cakeSm from "../public/images/cake-sm.png";
-import cakeMd from "../public/images/cake-md.png";
-import cakeLg from "../public/images/cake-lg.png";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -14,6 +9,11 @@ import { useContext } from "react";
 import ThemeContext from "../theme/themContext";
 import { themeData } from "../theme/themeData";
 import { useRouter } from "next/router";
+
+// Images
+import cakeSm from "../public/images/cake-sm.png";
+import cakeMd from "../public/images/cake-md.png";
+import cakeLg from "../public/images/cake-lg.png";
 
 export default function Detail() {
   const { locale } = useRouter();
@@ -33,8 +33,9 @@ export default function Detail() {
         <section className="section">
           <CopyRight />
           <div className="section__container">
-            <Nav />
+            <Nav classes="mobile" />
             <div className="section__body">
+              <Nav classes="desktop" />
               <div className="ingredients">
                 <h1 className="ingredients__title">
                   <motion.div

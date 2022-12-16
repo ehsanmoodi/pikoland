@@ -3,11 +3,15 @@
   @apply flex flex-col items-center justify-end;
   @apply lg:items-start;
 
+  @screen lg {
+    height: calc(100% - 76px - 24px - 24px);
+  }
+
   &__info {
-    @apply relative;
-    @apply mt-10 mb-16 lg:mb-40;
+    @apply relative grow;
+    @apply px-4 lg:px-6 my-6;
     @apply text-center lg:text-start;
-    @apply px-4 lg:px-6;
+    @apply flex flex-col justify-center;
 
     &__title {
       @apply font-black text-5xl md:text-6xl lg:text-7xl my-3 lg:mt-6;
@@ -32,5 +36,10 @@
         @apply left-0;
       }
     }
+  }
+
+  &__body {
+    @apply w-full flex;
+    @apply overflow-auto;
   }
 }

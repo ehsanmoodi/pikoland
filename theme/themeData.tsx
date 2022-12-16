@@ -28,6 +28,7 @@ import raisin from "../public/images/ingredients/raisin.png";
 
 export const themeData: {
   [key: string]: {
+    id: string;
     bg: string;
     bgImage: StaticImageData;
     color: string;
@@ -40,6 +41,7 @@ export const themeData: {
   };
 } = {
   carrot: {
+    id: "carrot",
     bg: "radial-gradient(50% 50% at 50% 50%, #F8DDC7 0%, #ECA469 0.01%, #E68A3E 0.02%, #DF6704 100%)",
     bgImage: carrotPackage,
     color: "#DF6704",
@@ -57,6 +59,7 @@ export const themeData: {
     ],
   },
   hazelnut: {
+    id: "hazelnut",
     bg: "radial-gradient(50% 50% at 50% 50%, #F8DDC7 0%, #ECA469 0.01%, #C64555 0.02%, #AC1D2F 100%)",
     bgImage: hazelnutPackage,
     color: "#AC1D2F",
@@ -74,6 +77,7 @@ export const themeData: {
     ],
   },
   raisin: {
+    id: "raisin",
     bg: "radial-gradient(50% 50% at 50% 50%, #F8DDC7 0%, #ECA469 0.01%, #782CA3 0.02%, #531078 100%)",
     bgImage: raisinPackage,
     color: "#531078",
@@ -91,6 +95,7 @@ export const themeData: {
     ],
   },
   coconut: {
+    id: "coconut",
     bg: "radial-gradient(50% 50% at 50% 50%, #F8DDC7 0%, #ECA469 0.01%, #519BCF 0.02%, #0075C9 100%)",
     bgImage: coconutPackage,
     color: "#0075C9",

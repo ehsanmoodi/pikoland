@@ -25,16 +25,14 @@
   &__container {
     @apply order-1 lg:order-2;
     @apply grow;
-    @apply flex flex-col flex-wrap;
+    @apply flex flex-col lg:flex-row flex-nowrap;
   }
 
   &__nav {
-    @apply relative;
-    @apply lg:w-1/2;
-    @apply shrink-0;
-    @apply order-1;
-    @apply flex gap-5 lg:gap-8 mx-4 lg:mx-0 lg:px-6 py-5 lg:py-0 lg:mt-6 mb-6;
+    @apply relative shrink-0;
+    @apply flex justify-center lg:justify-start gap-5 lg:gap-8 mx-4 lg:mx-0 lg:px-6 py-0 my-6;
     @apply font-medium text-sm lg:text-base;
+    @apply h-12;
 
     &::after {
       content: "";
@@ -63,21 +61,28 @@
         }
       }
     }
+
+    &.desktop {
+      @apply hidden lg:flex;
+    }
+
+    &.mobile {
+      @apply lg:hidden;
+    }
   }
 
   &__body {
-    @apply lg:w-1/2;
-    @apply grow;
-    @apply order-3 lg:order-2;
+    @apply relative;
+    @apply w-full grow order-2 lg:order-1;
+    @apply h-auto lg:h-full;
+    @apply flex flex-col;
   }
 
   &__image {
+    @apply w-full grow order-1 lg:order-2;
     @apply relative overflow-hidden;
-    @apply order-2 lg:order-3;
-    @apply lg:w-1/2;
-    @apply shrink-0;
     @apply h-auto lg:h-screen;
-    @apply flex flex-col items-center justify-center;
+    @apply flex items-center justify-center;
     @apply transition-all duration-1000;
 
     $parent: &;
