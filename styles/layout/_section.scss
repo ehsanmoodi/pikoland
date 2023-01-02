@@ -80,6 +80,7 @@
 
     &__bg {
       @apply absolute inset-0 w-full h-full;
+      @apply animate-pulse;
 
       img {
         @apply -ml-20;
@@ -90,7 +91,7 @@
 
   &__image {
     @apply w-full grow order-1 lg:order-2;
-    @apply relative;
+    @apply relative z-20;
     @apply h-auto lg:h-screen;
     @apply flex items-center justify-center;
     @apply transition-all duration-1000;

@@ -101,7 +101,9 @@ export default function Home() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 1 }}
+                  transition={{
+                    duration: 1,
+                  }}
                   className="section__body__bg"
                   style={{
                     translateY,
