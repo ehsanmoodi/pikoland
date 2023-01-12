@@ -10,6 +10,8 @@ import { themeData } from "../../theme/themeData";
 import { ParsedUrlQuery } from "querystring";
 import { blogs } from "../../content/blog";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   featureImage,
@@ -17,6 +19,7 @@ const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   slug,
   content,
 }) => {
+  const { t } = useTranslation("common");
   const themeCtx: { theme: string; toggleTheme: (theme: string) => void } =
     useContext(ThemeContext);
 
@@ -69,6 +72,15 @@ const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 }}
                 className="single"
               >
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, delay: 0.75 }}
+                  className="single__back"
+                >
+                  <Link href="/blog">{t("back")}</Link>
+                </motion.span>
                 <motion.h1
                   initial={{ y: -100 }}
                   animate={{ y: 0 }}

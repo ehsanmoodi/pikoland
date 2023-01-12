@@ -6,6 +6,21 @@
     height: calc(100% - 76px - 24px - 24px);
   }
 
+  &__back {
+    @apply self-start;
+    @apply px-4 lg:px-6;
+    @apply font-semibold text-lg lg:text-xl;
+    @apply flex items-start gap-2;
+
+    &::before {
+      content: "";
+      @apply inline-block w-6 h-6;
+      @apply bg-no-repeat bg-center bg-contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' stroke-width='2' d='M8.773 5.436 3.21 11l5.564 5.564M18.791 11H3.364'/%3E%3C/svg%3E");
+      @apply rtl:rotate-180;
+    }
+  }
+
   &__title {
     @apply font-black text-2xl lg:text-3xl;
     @apply px-4 lg:px-6 my-6;
