@@ -49,11 +49,12 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Pikoland</title>
+        <title>Pikoland - وبسایت رسمی پیکولند</title>
         <meta
           name="description"
           content="Mini Cakes Whith Carrot & Cinnamon Flavor"
         />
+        <meta name="google-site-verification" content="F_pJt2jCOWeLGWaypNNy7ynkUUgruPWKSEd1wLK70F4" />
       </Head>
 
       <main>
