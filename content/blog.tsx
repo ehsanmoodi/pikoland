@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { PurchaseButtonType } from "../components/PurchaseButton/types";
 
 // Thumbnails
 import image1 from "../public/images/blog/1.png";
@@ -7,6 +8,14 @@ import image3 from "../public/images/blog/3.png";
 
 // Features
 import feature1 from "../public/images/blog/feature1.png";
+
+export const purchaseLink: PurchaseButtonType = {
+  link: "http://digikala.com",
+  label: {
+    en: "Buy from Digikala",
+    fa: "خرید از دیجی‌کالا",
+  },
+};
 
 export const blogs: {
   slug: string;

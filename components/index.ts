@@ -5,6 +5,7 @@ import { default as BlogItem } from "./BlogItem";
 import { default as CopyRight } from "./CopyRight";
 import { default as Nav } from "./Nav";
 import { default as ProductNav } from "./ProductNav";
+import { default as PurchaseButton } from "./PurchaseButton";
 
 export {
   LanguageSwitcher,
@@ -14,4 +15,5 @@ export {
   CopyRight,
   Nav,
   ProductNav,
+  PurchaseButton,
 };

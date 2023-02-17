@@ -1,0 +1,31 @@
+.purchase-btn {
+  @apply fixed bottom-4 ltr:right-4 rtl:left-4 z-20;
+  @apply font-medium text-sm text-white uppercase;
+  @apply rounded-full;
+  @apply p-1 pb-4;
+  @apply flex gap-2 items-center rtl:flex-row-reverse;
+  background-color: #ed1b33;
+  writing-mode: vertical-lr;
+  max-height: min-content;
+
+  i {
+    @apply shrink-0;
+    width: 42px;
+    height: 42px;
+    @apply bg-white rounded-full;
+
+    img {
+      @apply w-full h-full;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  span {
+    @apply whitespace-nowrap;
+  }
+
+  [dir="rtl"] & {
+    writing-mode: vertical-rl;
+  }
+}

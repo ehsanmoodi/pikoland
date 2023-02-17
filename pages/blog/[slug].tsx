@@ -3,12 +3,12 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import type { GetStaticPaths, InferGetStaticPropsType, NextPage } from "next";
 import { GetStaticProps } from "next";
-import { CopyRight, Nav } from "../../components";
+import { CopyRight, Nav, PurchaseButton } from "../../components";
 import { useContext, useState } from "react";
 import ThemeContext from "../../theme/themContext";
 import { themeData } from "../../theme/themeData";
 import { ParsedUrlQuery } from "querystring";
-import { blogs } from "../../content/blog";
+import { blogs, purchaseLink } from "../../content/blog";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -132,6 +132,7 @@ const Single: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               </motion.div>
             </div>
           </div>
+          <PurchaseButton link={purchaseLink.link} label={purchaseLink.label} />
         </section>
       </main>
     </div>
