@@ -32,5 +32,51 @@
     @apply font-light text-base leading-7 text-justify;
     @apply bg-parchment;
     @apply mx-4 lg:mx-0 p-4 lg:px-6;
+    border: 1px solid red;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      @apply font-bold mt-5 mb-1;
+    }
+
+    h1 {
+      @apply text-2xl lg:text-3xl;
+    }
+
+    h2 {
+      @apply text-xl lg:text-2xl;
+    }
+
+    h3 {
+      @apply text-lg lg:text-xl;
+    }
+
+    h4 {
+      @apply text-base lg:text-lg;
+    }
+
+    h5 {
+      @apply text-sm lg:text-base;
+    }
+
+    ul {
+      li {
+        @apply relative;
+        @apply flex items-center gap-3;
+
+        &::before {
+          content: "";
+          @apply inline-block;
+          width: 10px;
+          height: 10px;
+          @apply rounded-full;
+          @apply bg-black;
+          @apply opacity-75 bg-opacity-75;
+        }
+      }
+    }
   }
 }
