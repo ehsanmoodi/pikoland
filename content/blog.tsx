@@ -7,7 +7,7 @@ import image2 from "../public/images/blog/2.png";
 import image3 from "../public/images/blog/3.png";
 import image4 from "../public/images/blog/coco.jpg";
 import image5 from "../public/images/blog/havij.jpg";
-import image6 from "../public/images/blog/grape.jpg";
+import image6 from "../public/images/blog/angoor.jpg";
 
 // Features
 import feature1 from "../public/images/blog/feature1.png";
