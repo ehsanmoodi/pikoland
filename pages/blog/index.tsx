@@ -74,7 +74,7 @@ export default function Blog() {
                       key={item.slug}
                       image={item.thumbnail}
                       title={locale === "en" ? item.title.en : item.title.fa}
-                      // date={locale === "en" ? item.date.en : item.date.fa}
+                      date={locale === "en" ? item.date.en : item.date.fa}
                       link={`/blog/${item.slug}`}
                     />
                   ))}
