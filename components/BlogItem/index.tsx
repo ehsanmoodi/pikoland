@@ -70,10 +70,10 @@ const BlogItem: React.FC<BlogItemProps> = ({ image, title, date, link }) => {
               />
             </svg>
           </Link>
-          <span
-            className="blog-item__body__meta__date"
-            dangerouslySetInnerHTML={{ __html: date }}
-          />
+          {/*<span*/}
+          {/*  className="blog-item__body__meta__date"*/}
+          {/*  dangerouslySetInnerHTML={{ __html: date }}*/}
+          {/*/>*/}
         </div>
       </div>
     </article>
